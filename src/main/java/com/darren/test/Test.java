@@ -1,9 +1,9 @@
 package com.darren.test;
 
 public class Test {
-	private static final int DEEP = 121;
+	private static final int DEEP = 12100;
 	private volatile int count;
-	private static int array[][] = new int[21][DEEP];
+	private static double array[][] = new double[21][DEEP];
 	long start = System.currentTimeMillis();
 
 	public static void main(String[] args) {
