@@ -9,7 +9,6 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.log4j.Logger;
 
-
 public class WordCoundMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
     private static final Logger LOG = Logger.getLogger(WordCoundMapper.class);
 
@@ -18,10 +17,11 @@ public class WordCoundMapper extends Mapper<LongWritable, Text, Text, IntWritabl
         Text word = new Text();
         IntWritable one = new IntWritable(1);
         String line = value.toString();
-        StringTokenizer token = new StringTokenizer(line);
-        while (token.hasMoreTokens()) {
-            LOG.info("token.nextToken() = " + token.nextToken());
-            word.set(token.nextToken());
+        StringTokenizer tokenizer = new StringTokenizer(line);
+        while (tokenizer.hasMoreTokens()) {
+            String token = tokenizer.nextToken();
+            LOG.info("token.nextToken() = " + token);
+            word.set(token);
             context.write(word, one);
         }
 
