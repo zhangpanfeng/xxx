@@ -37,6 +37,12 @@ public class WordCount {
 
         job.waitForCompletion(true);
         long end = System.currentTimeMillis();
-        LOG.info("Total Cost: " + (end - start));
+        double s = (end - start) / 1000.0;
+        double m = s / 60.0;
+        double h = m / 60.0;
+
+        LOG.info("Total Cost: [" + s + "] s");
+        LOG.info("Total Cost: [" + m + "] m");
+        LOG.info("Total Cost: [" + h + "] h");
     }
 }
