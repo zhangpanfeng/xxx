@@ -23,7 +23,7 @@ public class CustomThread extends Thread {
 			}
 		}
 
-		test.nodify();
+//		test.nodify();
 	}
 
 }

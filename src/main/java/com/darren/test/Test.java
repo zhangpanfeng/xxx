@@ -1,34 +1,20 @@
 package com.darren.test;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 public class Test {
-	private static final int DEEP = 12100;
-	private volatile int count;
-	private static double array[][] = new double[21][DEEP];
-	long start = System.currentTimeMillis();
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("non_car_owner", "non_car_owner");
+        map.put("car_owner", "car_owner");
 
-		Test test = new Test();
+        Set<String> keySet = map.keySet();
+        for (String key : keySet) {
+            System.out.println(key);
+        }
+    }
 
-		Thread t1 = new CustomThread(test, array, 0, 7, DEEP);
-		Thread t2 = new CustomThread(test, array, 7, 14, DEEP);
-		Thread t3 = new CustomThread(test, array, 14, 21, DEEP);
-
-		t1.start();
-		t2.start();
-		t3.start();
-
-	}
-
-	public synchronized void nodify() {
-		count++;
-		if (count == 3) {
-			this.continueGo();
-		}
-	}
-
-	public void continueGo() {
-		long end = System.currentTimeMillis();
-		System.out.println("Total : " + (end - start));
-	}
 }
