@@ -1,6 +1,5 @@
 package com.darren.test.properties;
 
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,7 +23,7 @@ public class PropertiesTest {
         Properties properties = new Properties();
         properties.setProperty(key, value);
         OutputStream os = new FileOutputStream(file);
-        properties.store(os, "");
+        properties.store(os, "Save key: " + key + " value: " + value + "");
         os.close();
     }
 
@@ -37,7 +36,9 @@ public class PropertiesTest {
 
     public static void main(String[] args) throws IOException {
         setUp();
-        // save("key", "value");
+        save("key", "value");
+        save("key1", "value1");
+        save("key2", "value2");
         System.out.println(get("key"));
     }
 
